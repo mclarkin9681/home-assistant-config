@@ -50,7 +50,8 @@
     action: switch.turn_off
     data: {}
   mode: single
-- id: notify_on_automation_run
+- &id001
+  id: notify_on_automation_run
   alias: _Notify when automations run (except exclusions)
   description: Sends a notification for all automations unless opted out
   triggers:
@@ -58,17 +59,20 @@
     trigger: event
   conditions:
   - condition: template
-    value_template: "{{\n  trigger.event.data.entity_id != this.entity_id and\n  trigger.event.data.entity_id\
-      \ not in [\n    'automation.motion_in_kids_hallway_after_8_pm',\n    'automation.garage_alert_if_sub_panel_on_no_presence_repeat',\n\
-      \    'automation.washing_machine_finishes'\n  ]\n}}\n"
+    value_template: "{{\n  trigger.event.data.entity_id != this.entity_id and\n  trigger.event.data.entity_id
+      not in [\n    'automation.motion_in_kids_hallway_after_8_pm',\n    'automation.garage_alert_if_sub_panel_on_no_presence_repeat',\n
+      \   'automation.washing_machine_finishes'\n  ]\n}}\n"
   actions:
   - data:
       title: '{{ trigger.event.data.name }}'
       message: ran at {{ now().strftime('%I:%M %p on %A') }}
     action: notify.mobile_app_matts_iphone_15
   mode: parallel
+- *id001
+- *id001
+- *id001
 - id: '1749226428214'
-  alias: "Office \u2013 presence detected"
+  alias: Office – presence detected
   description: 'Turn on office lights, desk fan, and wake the Mac mini when presence
     is detected.
 
@@ -96,7 +100,7 @@
     data: {}
   mode: single
 - id: '1749584931221'
-  alias: "Office - cool to 72 \xB0F when window closes & it\u2019s \u2265 85 \xB0F"
+  alias: Office - cool to 72 °F when window closes & it’s ≥ 85 °F
   description: ''
   triggers:
   - entity_id: binary_sensor.office_window

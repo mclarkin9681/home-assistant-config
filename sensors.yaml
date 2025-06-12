@@ -1,0 +1,9 @@
+# sensors.yaml
+
+- platform: statistics
+  name: Washing Machine Consumption Average
+  entity_id: sensor.washing_machine_current_consumption
+  state_characteristic: mean
+  sampling_size: 30
+  max_age:
+    minutes: 10

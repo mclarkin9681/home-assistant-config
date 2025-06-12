@@ -1,0 +1,8 @@
+automation.motion_in_kids_hallway_after_8_pm:
+  automation_notify_exclude: true
+
+automation.garage_alert_if_sub_panel_on_no_presence_repeat:
+  automation_notify_exclude: true
+
+automation.washing_machine_finishes:
+  automation_notify_exclude: true
