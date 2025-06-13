@@ -58,9 +58,10 @@
     trigger: event
   conditions:
   - condition: template
-    value_template: "{{\n  trigger.event.data.entity_id != this.entity_id and\n  trigger.event.data.entity_id\
-      \ not in [\n    'automation.motion_in_kids_hallway_after_8_pm',\n    'automation.garage_alert_if_sub_panel_on_no_presence_repeat',\n\
-      \    'automation.washing_machine_finishes'\n  ]\n}}\n"
+    value_template: "{{\n  trigger.event.data.entity_id != this.entity_id and\n  trigger.event.data.entity_id
+      not in [\n    'automation.motion_in_kids_hallway_after_8_pm',\n    'automation.garage_alert_if_sub_panel_on_no_presence_repeat',\n
+      \   'automation.washing_machine_finishes',\n    'automation.garage_presence_is_not_matt'\n
+      \ ]\n}}\n"
   actions:
   - data:
       title: '{{ trigger.event.data.name }}'
@@ -68,7 +69,7 @@
     action: notify.mobile_app_matts_iphone_15
   mode: parallel
 - id: '1749226428214'
-  alias: "Office \u2013 presence detected"
+  alias: Office – presence detected
   description: 'Turn on office lights, desk fan, and wake the Mac mini when presence
     is detected.
 
@@ -96,7 +97,7 @@
     data: {}
   mode: single
 - id: '1749584931221'
-  alias: "Office - cool to 72 \xB0F when window closes & it\u2019s \u2265 85 \xB0F"
+  alias: Office - cool to 72 °F when window closes & it’s ≥ 85 °F
   description: ''
   triggers:
   - entity_id: binary_sensor.office_window
@@ -237,5 +238,23 @@
   - data:
       title: Motion Detected
       message: Motion detected in the kids hallway!
+    action: notify.mobile_app_matts_iphone_15
+  mode: single
+- id: '1749759939943'
+  alias: Garage - presence is not Matt
+  description: Sends a notification when someone is detected in the garage and it's
+    not Matt.
+  triggers:
+  - entity_id: binary_sensor.garage_sensors_presence
+    to: 'on'
+    trigger: state
+  conditions:
+  - condition: template
+    value_template: '{{ states(''sensor.matts_iphone_15_ble_area'') != ''Garage''
+      }}'
+  actions:
+  - data:
+      title: "Garage Alert \U0001F6A8"
+      message: Presence detected in the garage, and it's not Matt.
     action: notify.mobile_app_matts_iphone_15
   mode: single

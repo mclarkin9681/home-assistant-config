@@ -16,6 +16,8 @@
 !/views
 !/www
 !/decluttering_templates
+!dashboards/
+!dashboards/**
 
 # Ignore folders.
 

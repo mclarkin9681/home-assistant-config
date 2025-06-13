@@ -1,0 +1,13 @@
+type: custom:firemote-card
+entity: media_player.android_tv_basement_adb
+device_family: nvidia-shield
+device_type: shield-tv-pro-2019
+compatibility_mode: default
+android_tv_remote_entity: remote.android_tv_basement_atr
+app_launch_1: youtube
+app_launch_2: youtubeTV
+app_launch_3: plex
+scale: "100"
+visible_name_text: Basement
+name_position: top
+visible_name_text_color: "#e6efea"

@@ -1,0 +1,20 @@
+title: TV Remotes
+views:
+  - title: Remotes
+    path: remotes
+    panel: true
+    theme: default
+    cards:
+      - type: custom:swipe-card
+        start_card: 0
+        card_width: '100%'
+        parameters:
+          grabCursor: true
+          pagination:
+            type: bullets
+        cards:
+          - !include ./firemote_cards/family_room.yaml
+          - !include ./firemote_cards/kitchen.yaml
+          - !include ./firemote_cards/master.yaml
+          - !include ./firemote_cards/patio.yaml
+          - !include ./firemote_cards/basement.yaml

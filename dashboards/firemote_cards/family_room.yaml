@@ -1,0 +1,15 @@
+type: custom:firemote-card
+entity: media_player.apple_tv_family_room
+device_family: apple-tv
+device_type: appletv-4k-gen3
+compatibility_mode: default
+apple_tv_remote_entity: remote.apple_tv_family_room
+app_launch_1: apple-tv-music
+app_launch_2: youtube
+app_launch_3: youtubeTV
+app_launch_4: youtubekids
+app_launch_5: disney-plus
+app_launch_6: plex
+visible_name_text: Family
+name_position: top
+scale: "90"

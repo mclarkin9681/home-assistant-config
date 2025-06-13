@@ -6,7 +6,8 @@ default_config:
 
 # Load frontend themes from the themes folder
 frontend:
-  themes: !include_dir_merge_named themes
+ # themes: !include_dir_merge_named themes
+  themes: !include themes.yaml
 
 automation: !include automations.yaml
 script: !include scripts.yaml
@@ -18,4 +19,16 @@ http: !include ip_bans.yaml
 wake_on_lan:
 
 
+browser_mod:
+  prefix: "browser_mod_"
+
+lovelace:
+  mode: yaml
+  dashboards:
+    firemote-dashboard:
+      mode: yaml
+      title: TV Remotes
+      icon: mdi:remote
+      show_in_sidebar: true
+      filename: dashboards/firemote_swipe.yaml
 

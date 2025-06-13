@@ -1,0 +1,19 @@
+kiosk_theme:
+  name: Kiosk Theme
+  modes:
+    light:
+      card-mod-theme: kiosk_theme
+      app-header-background-color: transparent
+      app-header-text-color: transparent
+      background-color: "#000000"
+      primary-text-color: "#ffffff"
+      card-mod-root: |
+        app-header, app-toolbar, ha-menu-button, ha-button-menu {
+          display: none !important;
+          visibility: hidden !important;
+          height: 0 !important;
+          max-height: 0 !important;
+        }
+        ha-sidebar {
+          display: none !important;
+        }
