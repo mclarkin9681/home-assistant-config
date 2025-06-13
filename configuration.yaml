@@ -22,8 +22,23 @@ wake_on_lan:
 browser_mod:
   prefix: "browser_mod_"
 
+
 lovelace:
   mode: yaml
+  resources:
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/HA-Firemote/HA-Firemote.js
+      type: module
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+      type: module
+    - url: /hacsfiles/stack-in-card/stack-in-card.js
+      type: module
+    - url: /hacsfiles/swipe-card/swipe-card.js
+      type: module
+    - url: /hacsfiles/tabbed-card/tabbed-card.js
+      type: module
+
   dashboards:
     firemote-dashboard:
       mode: yaml
@@ -31,4 +46,3 @@ lovelace:
       icon: mdi:remote
       show_in_sidebar: true
       filename: dashboards/firemote_swipe.yaml
-

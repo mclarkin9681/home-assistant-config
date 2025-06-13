@@ -13,8 +13,8 @@ views:
           pagination:
             type: bullets
         cards:
-          - !include ./firemote_cards/family_room.yaml
-          - !include ./firemote_cards/kitchen.yaml
-          - !include ./firemote_cards/master.yaml
-          - !include ./firemote_cards/patio.yaml
-          - !include ./firemote_cards/basement.yaml
+          - !include firemote_cards/family_room.yaml
+          - !include firemote_cards/kitchen.yaml
+          - !include firemote_cards/master.yaml
+          - !include firemote_cards/patio.yaml
+          - !include firemote_cards/basement.yaml
