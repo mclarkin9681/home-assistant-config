@@ -15,16 +15,12 @@ scene: !include scenes.yaml
 http: !include ip_bans.yaml
 #sensor: !include sensors.yaml
 
-
 wake_on_lan:
-
 
 browser_mod:
   prefix: "browser_mod_"
 
-
 lovelace:
-  mode: yaml
   resources:
     - url: /hacsfiles/button-card/button-card.js
       type: module

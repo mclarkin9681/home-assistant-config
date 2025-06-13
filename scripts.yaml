@@ -1,0 +1,30 @@
+firemote_wake_command_reusable:
+  alias: Firemote Wake + Command (Reusable)
+  mode: queued
+  icon: mdi:remote-tv
+  fields:
+    remote_entity:
+      name: Remote entity
+      description: The remote.apple_tv_* entity to wake
+      required: true
+      selector:
+        entity:
+          domain: remote
+    command:
+      name: Command
+      description: The Apple TV command to send
+      required: true
+      selector:
+        text:
+  sequence:
+  - target:
+      entity_id: '{{ remote_entity }}'
+    action: remote.turn_on
+  - delay: 00:00:02
+  - target:
+      entity_id: '{{ remote_entity }}'
+    data:
+      command:
+      - '{{ command }}'
+    action: remote.send_command
+  description: ''
