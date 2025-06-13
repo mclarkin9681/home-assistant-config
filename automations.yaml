@@ -122,13 +122,21 @@
   mode: single
 - id: '1749587965332'
   alias: Washing Machine Finishes
-  description: Notify when washing machine cycle ends
+  description: Notify when washing machine cycle ends using power draw
   triggers:
-  - entity_id: sensor.washing_machine_status
-    to: Clean
-    trigger: state
-  conditions: []
+  - entity_id: sensor.washing_machine_current_consumption
+    below: 2
+    for:
+      minutes: 3
+    trigger: numeric_state
+  conditions:
+  - condition: state
+    entity_id: input_boolean.washing_machine_running
+    state: 'on'
   actions:
+  - target:
+      entity_id: input_boolean.washing_machine_running
+    action: input_boolean.turn_off
   - data:
       title: Laundry Done
       message: The washing machine is finished.
@@ -176,15 +184,20 @@
   mode: single
 - id: '1749653461959'
   alias: Washing Machine Started
-  description: ''
+  description: Set boolean when washing machine starts, avoids repeat triggers
   triggers:
   - entity_id: sensor.washing_machine_current_consumption
     above: 10
     for:
       minutes: 1
     trigger: numeric_state
+  conditions:
+  - condition: state
+    entity_id: input_boolean.washing_machine_running
+    state: 'off'
   actions:
-  - entity_id: input_boolean.washing_machine_running
+  - target:
+      entity_id: input_boolean.washing_machine_running
     action: input_boolean.turn_on
   mode: single
 - id: '1749661967214'
