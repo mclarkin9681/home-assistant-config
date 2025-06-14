@@ -75,4 +75,4 @@ apple_tv_wake_kitchen:
   alias: Apple TV - Wake Kitchen
   mode: single
   icon: mdi:television
-  descript
+  description: ''
