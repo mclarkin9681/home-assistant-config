@@ -13,3 +13,6 @@ app_launch_6: plex
 visible_name_text: Family
 name_position: top
 scale: "90"
+
+home_button_action:
+  service: script.apple_tv_wake_family_room

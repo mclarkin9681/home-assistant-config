@@ -1,5 +1,5 @@
 firemote_wake_command_reusable:
-  alias: Firemote Wake + Command (Reusable)
+  alias: Firemote Wake + Command (Reliable Session)
   mode: queued
   icon: mdi:remote-tv
   fields:
@@ -20,11 +20,59 @@ firemote_wake_command_reusable:
   - target:
       entity_id: '{{ remote_entity }}'
     action: remote.turn_on
-  - delay: 00:00:02
+  - delay: 00:00:04
   - target:
       entity_id: '{{ remote_entity }}'
     data:
       command:
       - '{{ command }}'
     action: remote.send_command
+'1749854409736':
+  alias: Apple TV - Wake Family Room
+  sequence:
+  - target:
+      entity_id: remote.apple_tv_family_room
+    action: remote.turn_on
+    data: {}
+  - delay: 00:00:02
+  - target:
+      entity_id: remote.apple_tv_family_room
+    data:
+      command:
+      - home
+    action: remote.send_command
+  mode: single
+  icon: mdi:television
+apple_tv_wake_master_bedroom:
+  alias: Apple TV - Wake Master Bedroom
+  icon: mdi:television
+  mode: single
   description: ''
+  sequence:
+  - target:
+      entity_id: remote.apple_tv_master_bedroom
+    action: remote.turn_on
+  - delay: 00:00:02
+  - target:
+      entity_id: remote.apple_tv_master_bedroom
+    data:
+      command:
+      - home
+    action: remote.send_command
+apple_tv_wake_kitchen:
+  sequence:
+  - target:
+      entity_id: remote.apple_tv_kitchen
+    action: remote.turn_on
+    data: {}
+  - delay: 00:00:02
+  - target:
+      entity_id: remote.apple_tv_kitchen
+    data:
+      command:
+      - home
+    action: remote.send_command
+  alias: Apple TV - Wake Kitchen
+  mode: single
+  icon: mdi:television
+  descript

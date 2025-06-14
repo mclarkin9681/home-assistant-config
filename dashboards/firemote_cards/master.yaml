@@ -1,15 +1,23 @@
 type: custom:firemote-card
-entity: media_player.apple_tv_master_bedroom
+entity: media_player.apple_tv_master_bedroom        # the Apple TV media-player entity
 device_family: apple-tv
-device_type: appletv-4k-gen3
-compatibility_mode: default
+device_type: appletv-gen4                           # valid per the card docs:contentReference[oaicite:0]{index=0}
+compatibility_mode: default                         # (ignored for Apple TV, but harmless)
 apple_tv_remote_entity: remote.apple_tv_master_bedroom
+defaultRemoteStyle_override: AR3
+# one-tap app launchers (leave as-is if they already work for you)
 app_launch_1: apple-tv-music
 app_launch_2: youtube
 app_launch_3: youtubeTV
 app_launch_4: youtubekids
 app_launch_5: disney-plus
 app_launch_6: plex
+
+# cosmetic options
 visible_name_text: Master
 name_position: top
-scale: "90"
+scale: 90                                           # numeric value is fine; quotes optional
+
+button_overrides:
+  home-button:
+    script: apple_tv_wake_master_bedroom            # “short” name of your script:contentReference[oaicite:1]{index=1}

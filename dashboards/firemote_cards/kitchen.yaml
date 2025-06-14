@@ -1,7 +1,7 @@
 type: custom:firemote-card
 entity: media_player.apple_tv_kitchen
 device_family: apple-tv
-device_type: appletv-4k-gen3
+device_type: appletv-gen4
 compatibility_mode: default
 apple_tv_remote_entity: remote.apple_tv_kitchen
 app_launch_1: apple-tv-music
@@ -13,3 +13,10 @@ app_launch_6: plex
 visible_name_text: Kitchen
 name_position: top
 scale: "90"
+defaultRemoteStyle_override: AR3
+
+home_button_action:
+  service: script.firemote_wake_command_reusable
+  data:
+    remote_entity: remote.apple_tv_kitchen
+    command: home
